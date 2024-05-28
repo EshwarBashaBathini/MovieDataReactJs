@@ -1,0 +1,21 @@
+.cast-listitem {
+  padding: 5px;
+  margin: 5px;
+  width: 11%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px 0px #a7b6b8;
+  list-style-type: none;
+  background-color: white;
+}
+.cast-img {
+  width: 100%;
+  border-radius: 10px;
+}
+.cast-org-name {
+  color: black;
+  font-size: 15px;
+}
+.cast-span {
+  color: #a7b6b8;
+  font-size: 13px;
+}

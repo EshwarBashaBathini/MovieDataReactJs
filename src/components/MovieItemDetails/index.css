@@ -1,0 +1,81 @@
+.div-loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.total-container {
+  background-color: #f0e3cc;
+  min-height: 100vh;
+  font-family: 'Roboto';
+  width: 100%;
+  padding: 1rem;
+}
+.movie-details {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.movie-img {
+  width: 100%;
+  border-radius: 15px;
+  border: 1px solid #a7b6b8;
+}
+.MovieDetailsContainer {
+  width: 40%;
+}
+.details {
+  background-color: #f0e3cc;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.card-details {
+  width: 100%;
+  background-color: #f0e3cc;
+  padding: 15px;
+  border-radius: 10px;
+}
+.name {
+  font-size: 16px;
+  color: black;
+  font-family: 'Roboto';
+}
+.span-value {
+  color: #748182;
+  font-size: 14px;
+}
+.Ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.cast-head {
+  color: black;
+  font-family: 'Roboto';
+  font-size: 16px;
+}
+.cast-ul {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 0px !important;
+}
+.ul-genre {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 0px;
+}
+
+.li-genre {
+  list-style-type: none;
+}
+.budget-li {
+  display: flex;
+  align-items: center;
+}
