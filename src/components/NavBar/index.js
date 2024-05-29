@@ -15,8 +15,8 @@ const NavBar = props => {
         const onChangeHandler = event => onChangeSearchInput(event.target.value)
 
         const onSearchHandler = event => {
-          const {history} = props
           event.preventDefault()
+          const {history} = props
           onTriggerSearchingQuery()
           history.push('/search')
         }

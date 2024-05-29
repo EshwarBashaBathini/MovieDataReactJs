@@ -1,0 +1,27 @@
+.pagination-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.button {
+  background-color: white;
+  height: 40px;
+  width: 40px;
+  font-size: 13px;
+  color: black;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+}
+.page-count {
+  background-color: white;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  padding: 5px 5px 3px 5px;
+  color: black;
+  border-radius: 20px;
+  box-shadow: 0px 0px 4px 0px #000000;
+}

@@ -1,7 +1,7 @@
 import {useEffect, useState, useCallback} from 'react'
 import Loader from 'react-loader-spinner'
 import './index.css'
-
+import Pagination from '../Pagination'
 import NavBar from '../NavBar'
 import MovieItem from '../MovieItem'
 
@@ -64,25 +64,12 @@ const TopRated = () => {
           <MovieItem key={item.id} details={item} />
         ))}
       </ul>
-      <div className="pagination-container">
-        <button
-          className="button"
-          onClick={onPrevPage}
-          type="button"
-          disabled={currentPage === 1}
-        >
-          &lt; Prev
-        </button>
-        <span className="page-count">{currentPage}</span>
-        <button
-          className="button"
-          onClick={onNextPage}
-          type="button"
-          disabled={currentPage === totalPages}
-        >
-          Next &gt;
-        </button>
-      </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onNextPage={onNextPage}
+        onPrevPage={onPrevPage}
+      />
     </div>
   )
 
