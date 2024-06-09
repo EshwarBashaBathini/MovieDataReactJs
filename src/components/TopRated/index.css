@@ -1,4 +1,3 @@
-
 .div-loader {
   display: flex;
   flex-direction: column;
@@ -124,5 +123,4 @@
 }
 .loader-container {
   height: 100vh;
-
 }
