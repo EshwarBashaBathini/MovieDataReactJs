@@ -1,33 +1,68 @@
+import React from 'react'
 import './index.css'
 
-const Pagination = props => {
-  const {currentPage, totalPages, onNextPage, onPrevPage} = props
-  const onNextPage1 = () => {
-    onNextPage()
+class Pagination extends React.Component {
+  state = {
+    pageNo: 1,
   }
-  const onPrevPage1 = () => {
-    onPrevPage()
+
+  onNextPage = () => {
+    const {apiCallback, totalPages} = this.props
+    this.setState(
+      prevState => {
+        if (prevState.pageNo < totalPages) {
+          return {
+            pageNo: prevState.pageNo + 1,
+          }
+        }
+        return prevState
+      },
+      () => {
+        const {pageNo} = this.state
+        apiCallback(pageNo)
+      },
+    )
   }
-  return (
-    <footer className="pagination-container">
-      <button
-        className="button"
-        onClick={onPrevPage1}
-        type="button"
-        disabled={currentPage === 1}
-      >
-        Prev
-      </button>
-      <span className="page-count">{currentPage}</span>
-      <button
-        className="button"
-        onClick={onNextPage1}
-        type="button"
-        disabled={currentPage === totalPages}
-      >
-        Next
-      </button>
-    </footer>
-  )
+
+  onPrevPage = () => {
+    const {apiCallback} = this.props
+    this.setState(
+      prevState => {
+        if (prevState.pageNo > 1) {
+          return {
+            pageNo: prevState.pageNo - 1,
+          }
+        }
+        return prevState
+      },
+      () => {
+        const {pageNo} = this.state
+        apiCallback(pageNo)
+      },
+    )
+  }
+
+  render() {
+    const {pageNo} = this.state
+    const {totalPages} = this.props
+
+    return (
+      <div className="pagination-container">
+        <button type="button" className="control-btn" onClick={this.onPrevPage}>
+          Prev
+        </button>
+        <p className="page-no">{pageNo}</p>
+        <button
+          type="button"
+          className="control-btn"
+          disabled={pageNo === totalPages}
+          onClick={this.onNextPage}
+        >
+          Next
+        </button>
+      </div>
+    )
+  }
 }
+
 export default Pagination

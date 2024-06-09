@@ -7,14 +7,14 @@ import Pagination from '../Pagination'
 
 import './index.css'
 
-class TopRated extends React.Component {
+class Popular extends React.Component {
   state = {
     isLoading: true,
-    topRatedMovieResponse: {},
+    popularMovieResponse: {},
   }
 
   componentDidMount() {
-    this.getTopRatedMoviesResponse()
+    this.getPopularMoviesResponse()
   }
 
   getUpdatedData = responseData => ({
@@ -28,13 +28,13 @@ class TopRated extends React.Component {
     })),
   })
 
-  getTopRatedMoviesResponse = async (page = 1) => {
+  getPopularMoviesResponse = async (page = 1) => {
     const API_KEY = 'f32b79895b21468afbdd6d5342cbf3da'
-    const apiUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`
+    const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
     const response = await fetch(apiUrl)
     const data = await response.json()
     const newData = this.getUpdatedData(data)
-    this.setState({isLoading: false, topRatedMovieResponse: newData})
+    this.setState({isLoading: false, popularMovieResponse: newData})
   }
 
   renderLoadingView = () => (
@@ -44,8 +44,8 @@ class TopRated extends React.Component {
   )
 
   renderPopularMoviesList = () => {
-    const {topRatedMovieResponse} = this.state
-    const {results} = topRatedMovieResponse
+    const {popularMovieResponse} = this.state
+    const {results} = popularMovieResponse
 
     return (
       <ul className="ul-items">
@@ -57,7 +57,7 @@ class TopRated extends React.Component {
   }
 
   render() {
-    const {isLoading, topRatedMovieResponse} = this.state
+    const {isLoading, popularMovieResponse} = this.state
 
     return (
       <>
@@ -68,12 +68,12 @@ class TopRated extends React.Component {
             : this.renderPopularMoviesList()}
         </div>
         <Pagination
-          totalPages={topRatedMovieResponse.totalPages}
-          apiCallback={this.getTopRatedMoviesResponse}
+          totalPages={popularMovieResponse.totalPages}
+          apiCallback={this.getPopularMoviesResponse}
         />
       </>
     )
   }
 }
 
-export default TopRated
+export default Popular

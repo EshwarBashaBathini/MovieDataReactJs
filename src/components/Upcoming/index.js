@@ -1,20 +1,19 @@
-import React from 'react'
 import Loader from 'react-loader-spinner'
-
+import {Component} from 'react'
 import MovieCard from '../MovieCard'
 import NavBar from '../NavBar'
 import Pagination from '../Pagination'
 
 import './index.css'
 
-class TopRated extends React.Component {
+class Upcoming extends Component {
   state = {
     isLoading: true,
-    topRatedMovieResponse: {},
+    upcomingMovieResponse: {},
   }
 
   componentDidMount() {
-    this.getTopRatedMoviesResponse()
+    this.getUpcomingMoviesResponse()
   }
 
   getUpdatedData = responseData => ({
@@ -28,13 +27,13 @@ class TopRated extends React.Component {
     })),
   })
 
-  getTopRatedMoviesResponse = async (page = 1) => {
+  getUpcomingMoviesResponse = async (page = 1) => {
     const API_KEY = 'f32b79895b21468afbdd6d5342cbf3da'
-    const apiUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`
+    const apiUrl = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=${page}`
     const response = await fetch(apiUrl)
     const data = await response.json()
     const newData = this.getUpdatedData(data)
-    this.setState({isLoading: false, topRatedMovieResponse: newData})
+    this.setState({isLoading: false, upcomingMovieResponse: newData})
   }
 
   renderLoadingView = () => (
@@ -44,8 +43,8 @@ class TopRated extends React.Component {
   )
 
   renderPopularMoviesList = () => {
-    const {topRatedMovieResponse} = this.state
-    const {results} = topRatedMovieResponse
+    const {upcomingMovieResponse} = this.state
+    const {results} = upcomingMovieResponse
 
     return (
       <ul className="ul-items">
@@ -57,7 +56,7 @@ class TopRated extends React.Component {
   }
 
   render() {
-    const {isLoading, topRatedMovieResponse} = this.state
+    const {isLoading, upcomingMovieResponse} = this.state
 
     return (
       <>
@@ -68,12 +67,12 @@ class TopRated extends React.Component {
             : this.renderPopularMoviesList()}
         </div>
         <Pagination
-          totalPages={topRatedMovieResponse.totalPages}
-          apiCallback={this.getTopRatedMoviesResponse}
+          totalPages={upcomingMovieResponse.totalPages}
+          apiCallback={this.getUpcomingMoviesResponse}
         />
       </>
     )
   }
 }
 
-export default TopRated
+export default Upcoming

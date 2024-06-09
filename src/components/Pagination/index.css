@@ -16,6 +16,23 @@
   outline: none;
 }
 .page-count {
+  justify-content: space-evenly;
+}
+
+.control-btn {
+  background-color: rgb(108, 225, 230);
+  height: 40px;
+  width: 100px;
+  outline: none;
+  border: none;
+  font-size: 13px;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+}
+.page-no {
+
   background-color: white;
   height: 30px;
   width: 30px;

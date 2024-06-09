@@ -1,0 +1,12 @@
+.loader-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ul-items {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0px !important;
+}

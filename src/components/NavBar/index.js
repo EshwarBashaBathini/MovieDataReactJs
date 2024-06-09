@@ -1,10 +1,12 @@
 import {Link, withRouter} from 'react-router-dom'
+
+import SearchMoviesContext from '../../context/SearchMoviesContext'
+
 import './index.css'
-import SearchMovieContext from '../../context/SearchMovieContext'
 
 const NavBar = props => {
-  const getSearchBar = () => (
-    <SearchMovieContext.Consumer>
+  const renderSearchBar = () => (
+    <SearchMoviesContext.Consumer>
       {value => {
         const {
           onTriggerSearchingQuery,
@@ -18,17 +20,19 @@ const NavBar = props => {
           event.preventDefault()
           const {history} = props
           onTriggerSearchingQuery()
-          history.push('/search')
+          history.push(`/search`)
         }
+
         return (
-          <div className="search-container">
+          <div className="d-flex align-items-center">
             <input
-              className="input"
-              type="search"
+              type="text"
+              className="me-2 search-input"
               onChange={onChangeHandler}
               value={searchInput}
               placeholder="Search"
             />
+
             <Link to="/search">
               <button
                 className="search-btn"
@@ -41,35 +45,37 @@ const NavBar = props => {
           </div>
         )
       }}
-    </SearchMovieContext.Consumer>
+    </SearchMoviesContext.Consumer>
   )
 
   return (
-    <div className="nav-container">
-      <Link to="/" className="link">
-        <h1 className="h1">movieDB</h1>
-      </Link>
-      <div className="unorder-2">
-        <button type="button" className="nav-btn">
-          <Link className="link" to="/">
-            <h3>Popular</h3>
-          </Link>
-        </button>
-
-        <button type="button" className="nav-btn">
-          <Link className="link" to="/top-rated ">
-            <h3>Top Rated</h3>
-          </Link>
-        </button>
-
-        <button type="button" className="nav-btn">
-          <Link className="link" to="/upcoming">
-            <h3>Upcoming</h3>
-          </Link>
-        </button>
+    <nav className="navbar-container d-flex align-items-center p-3">
+      <div className="logo-container">
+        <Link to="/" className="nav-link">
+          <h1 className="page-logo">movieDB</h1>
+        </Link>
       </div>
-      {getSearchBar()}
-    </div>
+      <div className=" container-movie ms-auto d-flex align-items-center">
+        <ul className=" nav-items-list">
+          <li className="nav-item">
+            <Link className="nav-link" to="/">
+              Popular
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/top-rated">
+              Top Rated
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/upcoming">
+              Upcoming
+            </Link>
+          </li>
+        </ul>
+        {renderSearchBar()}
+      </div>
+    </nav>
   )
 }
 
