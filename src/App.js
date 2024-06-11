@@ -3,7 +3,7 @@ import {Route, Switch} from 'react-router-dom'
 
 import Popular from './components/Popular'
 import TopRated from './components/TopRated'
-import Upcoming from './components/Upcoming'
+import Upcoming from './components/Upcoming/index'
 import SearchQuery from './components/SearchQuery'
 import MovieItemDetails from './components/MovieItemDetails'
 import SearchMoviesContext from './context/SearchMoviesContext'
