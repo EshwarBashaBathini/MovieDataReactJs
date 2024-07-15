@@ -24,7 +24,7 @@ const NavBar = props => {
         }
 
         return (
-          <div className="d-flex align-items-center">
+          <div className="search-container">
             <input
               type="text"
               className="me-2 search-input"

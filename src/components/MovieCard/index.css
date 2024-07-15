@@ -60,3 +60,8 @@
   background-color: yellow;
   color: black;
 }
+@media screen and (max-width:767px){
+  .movie-card-item{
+    width: 90%;
+  }
+}

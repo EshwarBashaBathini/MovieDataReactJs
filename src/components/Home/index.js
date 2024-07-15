@@ -24,7 +24,6 @@ const Home = () => {
     }
     const response = await fetch(apiUrl, options)
     const data = await response.json()
-    console.log(data)
     const updatedData = data.results.map(item => ({
       id: item.id,
       name: item.title,
