@@ -84,10 +84,10 @@
     flex-direction: column;
     align-items: center;
   }
-  .MovieDetailsContainer{
+  .MovieDetailsContainer {
     width: 60%;
   }
-  .movie-img{
+  .movie-img {
     width: 100%;
   }
 }

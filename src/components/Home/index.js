@@ -3,7 +3,7 @@ import Loader from 'react-loader-spinner'
 import './index.css'
 import Pagination from '../Pagination'
 import NavBar from '../NavBar'
-import MovieItem from '../MovieItem'
+import MovieCard from '../MovieCard'
 
 const Home = () => {
   const [isLoader, setLoader] = useState(true)
@@ -59,7 +59,7 @@ const Home = () => {
 
       <ul className="unorder-Movies">
         {popularList.map(item => (
-          <MovieItem key={item.id} details={item} />
+          <MovieCard key={item.id} details={item} />
         ))}
       </ul>
       <Pagination
