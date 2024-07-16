@@ -19,3 +19,8 @@
   color: #a7b6b8;
   font-size: 13px;
 }
+@media screen and (max-width:767px){
+  .cast-listitem{
+    width: 30%;
+  }
+}

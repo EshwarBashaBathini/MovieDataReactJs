@@ -5,11 +5,14 @@
 }
 .movie-card-item {
   list-style-type: none;
-  width: 30%;
+  width: 31%;
   padding: 10px;
   margin: 10px;
-  box-shadow: 0px 0px 4px 0px #000000;
   border-radius: 10px;
+  border: 1px solid #817e7e;
+}
+.movie-card-item:hover {
+  box-shadow: 0px 0px 4px 0px #000000;
 }
 .bottom-size {
   width: 100%;
@@ -62,6 +65,6 @@
 }
 @media screen and (max-width: 767px) {
   .movie-card-item {
-    width: 90%;
+    width: 100%;
   }
 }
